@@ -5,7 +5,7 @@ COPY --chown=1001:0 . /workspace
 RUN cat /cachi2/cachi2.env /workspace/artifacts.lock.yaml
 RUN ls -la /cachi2/output/deps/generic/
 RUN cp /cachi2/output/deps/generic/fernflower-8.0.0.CR1-redhat-00003.jar /opt/fernflower.jar
-RUN cp /cachi2/output/deps/generic/java-analyzer-bundle.core-8.0.0.CR1-redhat-00006.jar /opt/java-analyzer-bundle.core.jar
+RUN cp /cachi2/output/deps/generic/java-analyzer-bundle.core-8.0.1.CR1-redhat-00003.jar /opt/java-analyzer-bundle.core.jar
 WORKDIR /maven-index-data
 RUN cp /cachi2/output/deps/generic/maven-index-data-v20251112021242.zip /maven-index-data/maven-index-data.zip
 RUN unzip maven-index-data.zip && rm -rf maven-index-data.zip
