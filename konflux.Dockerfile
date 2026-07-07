@@ -15,7 +15,6 @@ RUN tar -xvf jdtls-product.tar.gz --no-same-owner && chmod 755 /jdtls/bin/jdtls 
 RUN cp /workspace/jdtls-bin-override/jdtls.py /jdtls/bin/jdtls.py
 
 FROM registry.redhat.io/ubi9:latest
-RUN dnf module list
 RUN dnf -y install openssl python39 java-1.8.0-openjdk-devel java-21-openjdk-devel maven-openjdk21 tar gzip --nodocs --setopt=install_weak_deps=0 && dnf -y clean all
 ENV JAVA_HOME /usr/lib/jvm/java-21-openjdk
 ENV JAVA8_HOME /usr/lib/jvm/java-1.8.0-openjdk
