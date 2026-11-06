@@ -16,8 +16,9 @@ RUN cp /workspace/jdtls-bin-override/jdtls.py /jdtls/bin/jdtls.py
 
 FROM registry.redhat.io/ubi10:latest
 RUN microdnf module enable maven:3.9 -y
-RUN dnf -y install openssl python39 java-1.8.0-openjdk-devel java-21-openjdk-devel maven-openjdk21 tar gzip --nodocs --setopt=install_weak_deps=0 && dnf -y clean all
-ENV JAVA_HOME /usr/lib/jvm/java-21-openjdk
+# JDT.LS 1.63.0 (built on Eclipse 2026-09) requires a Java 25 runtime
+RUN dnf -y install openssl python39 java-1.8.0-openjdk-devel java-25-openjdk-devel maven-openjdk25 tar gzip --nodocs --setopt=install_weak_deps=0 && dnf -y clean all
+ENV JAVA_HOME /usr/lib/jvm/java-25-openjdk
 ENV JAVA8_HOME /usr/lib/jvm/java-1.8.0-openjdk
 RUN mvn --version
 
